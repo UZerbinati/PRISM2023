@@ -4,7 +4,6 @@ from pickle import dump,load
 import numpy as np
 
 plt.figure()
-plt.title(r"$|\lambda_1-\lambda^h_1|$")
 fp = open("Errors/ErrorP2P1Disc.pkl",'rb')
 data = load(fp)
 Ds = [sol[0] for sol in data]
@@ -29,4 +28,6 @@ for i in range(len(data)):
 plt.loglog(Ds[1:],[20*d**2 for d in Ds[1:]],"--")
 plt.loglog(Ds[1:],[30*d**4 for d in Ds[1:]],"--")
 plt.legend(["P2-P1Disc","P2-P1","P2-P2","2nd Order","4th Order"])
+plt.ylabel(r"$|\lambda_1-\lambda^h_1|$")
+plt.xlabel(r"$h$")
 plt.show()
